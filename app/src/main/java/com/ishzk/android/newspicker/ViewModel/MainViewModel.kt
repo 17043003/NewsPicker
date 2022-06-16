@@ -1,12 +1,12 @@
-package com.ishzk.android.newspicker.ViewModel
+package com.ishzk.android.newspicker.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.ishzk.android.newspicker.BuildConfig
-import com.ishzk.android.newspicker.Model.Article
-import com.ishzk.android.newspicker.Service.NewsApiService
-import com.ishzk.android.newspicker.Service.RetrofitClient
+import com.ishzk.android.newspicker.model.Article
+import com.ishzk.android.newspicker.service.NewsApiService
+import com.ishzk.android.newspicker.service.RetrofitClient
 import java.text.SimpleDateFormat
 import java.util.*
 

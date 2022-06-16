@@ -1,9 +1,8 @@
-package com.ishzk.android.newspicker.Service
+package com.ishzk.android.newspicker.service
 
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 object RetrofitClient {
     private var service: NewsApiService

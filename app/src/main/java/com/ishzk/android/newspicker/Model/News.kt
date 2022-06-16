@@ -1,4 +1,4 @@
-package com.ishzk.android.newspicker.Model
+package com.ishzk.android.newspicker.model
 
 import java.io.Serializable
 import java.util.*
