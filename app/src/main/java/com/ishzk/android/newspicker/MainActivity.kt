@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.*
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         binding.newsView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
         viewModel.newsList.observe(this){
+            binding.progressBar.visibility = ProgressBar.INVISIBLE
             newsListAdapter.submitList(it)
         }
     }
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onQueryTextSubmit(query: String?): Boolean {
+            binding.progressBar.visibility = ProgressBar.VISIBLE
             viewModel.fetchNews(query ?: "", Date())
             return true
         }
