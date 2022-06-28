@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity() {
         binding.newsView.adapter = newsListAdapter
         binding.newsView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
+        // add border line to RecyclerView.
+        val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager(this).orientation)
+        binding.newsView.addItemDecoration(dividerItemDecoration)
+
         viewModel.newsList.observe(this){
             binding.progressBar.visibility = ProgressBar.INVISIBLE
             newsListAdapter.submitList(it)
