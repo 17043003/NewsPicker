@@ -18,7 +18,9 @@ data class Article(
     val urlToImage: String,
     val publishedAt: Date,
     val content: String,
-): Serializable
+): Serializable{
+    fun shortContent(): String = this.content.take(100) + "..."
+}
 
 data class NewsSource(
     val id: String?,
