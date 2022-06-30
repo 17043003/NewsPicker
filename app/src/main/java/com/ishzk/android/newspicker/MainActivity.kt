@@ -1,14 +1,18 @@
 package com.ishzk.android.newspicker
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.SearchView
 import androidx.activity.viewModels
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.*
+import com.bumptech.glide.Glide
 import com.ishzk.android.newspicker.databinding.ActivityMainBinding
 import com.ishzk.android.newspicker.databinding.NewsRowBinding
 import com.ishzk.android.newspicker.model.Article
@@ -89,8 +93,17 @@ class MainActivity : AppCompatActivity() {
             binding.run {
                 binding.article = item
                 binding.viewModel = viewModel
+
                 executePendingBindings()
             }
         }
     }
+}
+
+@BindingAdapter("ImageURI")
+fun ImageView.loadImage(uri: String?){
+    uri ?: return
+
+    val url = Uri.parse(uri)
+    Glide.with(this).load(url).into(this)
 }
