@@ -5,12 +5,17 @@
         <variable
             name="article"
             type="com.ishzk.android.newspicker.model.Article" />
+
+        <variable
+            name="viewModel"
+            type="com.ishzk.android.newspicker.viewmodel.MainViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:onClick="@{() -> viewModel.onClick(article)}">
 
         <TextView
             android:id="@+id/titleText"

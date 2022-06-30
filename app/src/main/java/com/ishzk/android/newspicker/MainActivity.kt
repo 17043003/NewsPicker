@@ -1,5 +1,6 @@
 package com.ishzk.android.newspicker
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -39,6 +40,11 @@ class MainActivity : AppCompatActivity() {
         viewModel.newsList.observe(this){
             binding.progressBar.visibility = ProgressBar.INVISIBLE
             newsListAdapter.submitList(it)
+        }
+
+        viewModel.onTransit.observe(this) {
+            val intent = Intent(Intent.ACTION_VIEW, it)
+            startActivity(intent)
         }
     }
 
@@ -82,6 +88,7 @@ class MainActivity : AppCompatActivity() {
         fun bind(item: Article, viewModel: MainViewModel) {
             binding.run {
                 binding.article = item
+                binding.viewModel = viewModel
                 executePendingBindings()
             }
         }
